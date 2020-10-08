@@ -1,6 +1,6 @@
-/*************** 
- Variables and data types
-*/
+
+ // Variables and data types
+
 
 console.log(firstName);
 console.log('Your name is: ' + firstName);
@@ -13,7 +13,6 @@ console.log(lastName);
 
 var job; 
 
-// vARIABLE NAMING RULES
 console.log(job);
 
 job = 'Teacher';
@@ -21,7 +20,7 @@ job = 'Teacher';
 console.log(job);
 
 
-// Type coercion
+// Type coercions
 
 var firstName = 'Fanny';
 var age = 41;
@@ -36,7 +35,7 @@ isMarried = false;
 console.log(firstName + ' has ' + age + ' years old and she is a ' + job + 
 '. Is he married? ' + isMarried);
 
-// Variable mutation
+// Variable mutations
 
 age = 'forty five'
 
