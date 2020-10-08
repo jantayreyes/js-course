@@ -1,4 +1,4 @@
-/*
+
 //Basic Operators
 
 var yearNow, yearJohn, yearMark;
@@ -25,7 +25,6 @@ console.log(typeof "I do not where I live 10 years ago");
 var x;
 console.log(typeof x);
 
-*/
 
 // Operator precedence
 
