@@ -1,7 +1,7 @@
 /*************** 
  Variables and data types
 */
-/*
+
 console.log(firstName);
 console.log('Your name is: ' + firstName);
 
@@ -20,10 +20,9 @@ job = 'Teacher';
 
 console.log(job);
 
-*/
 
 // Type coercion
-/*
+
 var firstName = 'Fanny';
 var age = 41;
 
@@ -46,5 +45,5 @@ alert(firstName + ' has ' + age + ' years old and she is a ' + job +
 
 var lastName = prompt('What is her last name?');
 console.log(firstName + ' ' + lastName);
-*/
+
 
