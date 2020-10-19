@@ -24,3 +24,28 @@ yearsUntilRetirament(1995, 'Jesus');
 yearsUntilRetirament(1993, 'Solange');
 yearsUntilRetirament(1997, 'Alfredo');
 yearsUntilRetirament(1945, 'Salome');
+
+
+//Function declaration
+
+  // function whatDoYouDo(job, firstName) {}
+
+//Functions expression
+
+const whatDoYouDo = function(job, firstName) {
+  switch(job) {
+    case 'teacher':
+      return `${firstName} teaches kids how to code`;
+    case 'driver':
+      return `${firstName} drives a cab in Lisbon`;
+    case 'designer':
+      return `${firstName} designs beatiful websites`;
+    default:
+      return `${firstName} does something else`;
+  }
+}
+
+console.log(whatDoYouDo('driver', 'Jesus'));
+console.log(whatDoYouDo('painter', 'Viviana'));
+console.log(whatDoYouDo('teacher', 'Alfredo'));
+console.log(whatDoYouDo('designer', 'Solange'));
