@@ -27,10 +27,14 @@ yearsUntilRetirament(1945, 'Salome');
 
 
 //Function declaration
-
-  // function whatDoYouDo(job, firstName) {}
+  //  function whatDoYouDo(birthYear) {
+  //   return 2037 - birthYear
+  // }
 
 //Functions expression
+  // const whatDoYouDo = function(birthYear) {
+  //   return 2037 - birthYear
+  // }
 
 const whatDoYouDo = function(job, firstName) {
   switch(job) {
