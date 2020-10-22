@@ -24,11 +24,11 @@ Test data:
 */
 
 
-  
+// Test 1
 const calAverage = (x, y, z) => (x + y + z) / 3;
 
-const scoreDolphins = calAverage(85, 54, 41);
-const scoreKoalas = calAverage(23, 34, 27);
+let scoreDolphins = calAverage(44, 23, 71);
+let scoreKoalas = calAverage(65, 54, 49);
 console.log(scoreDolphins, scoreKoalas);
 
 function checkWiner (averageDolphins, averageKoalas) {
@@ -42,3 +42,10 @@ function checkWiner (averageDolphins, averageKoalas) {
 }
 console.log(checkWiner(scoreDolphins, scoreKoalas));
 
+// Test 2
+
+scoreDolphins = calAverage(85, 54, 41);
+scoreKoalas = calAverage(23, 34, 27);
+console.log(scoreDolphins, scoreKoalas);
+
+console.log(checkWiner(scoreDolphins, scoreKoalas));
