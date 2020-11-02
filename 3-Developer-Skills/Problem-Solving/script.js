@@ -1,7 +1,7 @@
 
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
-
+/** 
 // PROBLEM  1
 // We work for a company building a smart home thermometer. Our most recent task is this: "given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
 
@@ -62,3 +62,51 @@ const calcTemAmplitudeNew = function (t1, t2) {
 };
 const amplitudeNew = calcTemAmplitudeNew(temperatures, [50, 5, 3]);
 console.log(amplitudeNew);
+*/
+
+//Debbugging with the console and breakpoints
+
+const measureKelvin =  function() {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // C) FIX
+    // value: Number(prompt('Degrees celsius:')),
+    value: 15
+  }
+  // b) FIND
+  console.table(measurement);
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin
+}
+
+// A) INDENTIFY
+console.log(measureKelvin());
+
+
+// Using a debugger
+
+const calcTemAmplitudeBug = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  let max = 0;
+  let min = 0; // We can not start the minumun and maximun as 0.
+
+  for(let i = 0; i < temps.length; i++) {
+    const currTemp = temps[i];
+    if (typeof currTemp !== 'number') continue;
+      // debugger;
+      if (currTemp > max) max = currTemp;
+      if (currTemp < min) min = currTemp;
+  } 
+  console.log(max, min);
+  return max - min;
+};
+const amplitudeBug = calcTemAmplitudeBug([3, 15, 22], [50, 5, 3]);
+// A) IDENTIFY
+console.log(amplitudeBug);
