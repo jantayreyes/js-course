@@ -31,7 +31,6 @@ document.querySelector('.check').addEventListener('click', function(){
     document.querySelector('.number').style.width = '30rem';
 
 
-
     // CSS = background-color === backgroundColor = JS * works for all the CSS properties
   // input higher than secret number
   } else if (guess > secretNumber) {
