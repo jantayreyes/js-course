@@ -1,1 +1,1 @@
-console.log('Testing');
+'use strict';
