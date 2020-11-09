@@ -23,3 +23,11 @@ for(let i = 0; i < btnsOpenModal.length; i++) {
 
 btnsCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+// We looking for a event everywhere.
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    // If the model does not contain the class hidden, then you can close with the key escape.
+      closeModal();
+  }
+});
