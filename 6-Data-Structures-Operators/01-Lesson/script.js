@@ -23,5 +23,3 @@ const restaurant = {
   },
 };
 
-console.log('Hello');
-console.log('Hello');
