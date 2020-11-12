@@ -32,7 +32,7 @@ matilda.calcAge =  jesus.calcAge;
 matilda.calcAge(); // the this keyword is point in the object which call him, in this case matilda is the object calling the this keyworkd, and do not jesus. 
 
 const f =  jesus.calcAge;
-f(); //
+f(); // undefined
 
 
 
