@@ -22,3 +22,5 @@ const restaurant = {
     },
   },
 };
+
+console.log('Hello');
