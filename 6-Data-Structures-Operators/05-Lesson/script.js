@@ -40,7 +40,7 @@ const restaurant = {
   },
 };
 
-// SHORT-CERCUITING
+// SHORT-CiRCUITING
 
 console.log('------ OR ------');
 // If the first value, on the OR operator is TRUE, it returs inmmediately the first value. 
