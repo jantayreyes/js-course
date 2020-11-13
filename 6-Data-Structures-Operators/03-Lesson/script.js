@@ -28,17 +28,65 @@ const restaurant = {
 
   orderDelivery: function ({ starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
-  }
+  },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
-restaurant.orderDelivery({
-  time: '23:19',
-  address: 'Via del carrer 25',
-  mainIndex: 2,
-  starterIndex: 2,
-});
 
-restaurant.orderDelivery({
-  address: 'Calle Loreno 25',
-  time: '15:40',
-})
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+// Spread Operator
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr); //In case we need tbe values individually
+console.log(1, 2, 7, 8, 9);
+
+const newMenu =  ['Fries', ...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy); // Shallow copy
+
+const mainMenuCopy2 = restaurant.mainMenu;
+console.log(mainMenuCopy2);
+
+// Join 2 or more arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Interables: arrays, strings, maps, sets. Not objects. 
+const str = 'Jesus';
+const letters = [...str, '', 's'];
+console.log(letters);
+console.log(...str);
+console.log('j', 'e', 's', 'u', 's');
+// console.log(`${...str} Antay`) - Template literal does not expect values separated by commas.
+
+//Real world example
+// const ingredients = [
+//   prompt('Let\'s make pasta! Ingrediente 1?'), 
+//   prompt('Let\'s make pasta! Ingrediente 2?'), 
+//   prompt('Let\'s make pasta! Ingrediente 3?'),
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); - by old way
+
+// restaurant.orderPasta(...ingredients) - by Spread operator
+
+// Objects - since 2018 Spread operator works on Objects too.
+const newRestaurant = {foundedYear: 2750, ...restaurant, founder: 'Josep Rools'};
+console.log(newRestaurant); 
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Pizzaria Carlos';
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
