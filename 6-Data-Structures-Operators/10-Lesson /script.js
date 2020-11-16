@@ -44,3 +44,61 @@ const restaurant = {
   },
 };
 
+// SETS
+
+// Create a Set.
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza', 
+  'Pizza', 
+  'Risotto', 
+  'Pasta', 
+  'Pizza'
+]);
+console.log(ordersSet);
+
+// String set.
+console.log(new Set('Jesus'));
+
+// Length for arrays, size for sets.
+console.log(ordersSet.size);
+
+// IF an element is contained - True/false
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+// Add elements to the set, unique value.
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+console.log(ordersSet);
+
+// Delete elements
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+
+// Retrieve values out of a Set
+// There are no need to get values out of a set. 
+
+// Delete all the elements from a set.
+// ordersSet.clear();
+console.log(ordersSet);
+
+for(const order of ordersSet) {
+  console.log(order);
+};
+
+// EXAMPLE
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+console.log(staff);
+
+// - First we create the set
+// const staffUnique = new Set(staff);
+// console.log(staffUnique);
+
+// - After that we use the Spread Operator to unpack, this elements will be put into a new constructed array.
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+console.log( new Set('Jesus Antay Reyes').size);
