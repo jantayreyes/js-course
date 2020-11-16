@@ -68,3 +68,52 @@ const game = {
     },
   };
 
+// 1)
+const totalScore = Object.entries(game.scored)
+console.log(totalScore);
+for (const [goalNumber, name] of totalScore) {
+  console.log(goalNumber);
+  console.log(name);
+  console.log(`"Goal ${(goalNumber * 1) + 1}: ${name}"`);
+};
+
+//THIS IS BETTER SOLUTION, in arrays we use the entries method to get the entries of the array, in objects we have to use Object.entries and then pass the function that we want to.
+for (const [i, player] of game.scored.entries()) {
+  console.log(i);
+  console.log(player);  
+  console.log(`Goal ${i + 1}: ${player}`);
+}
+
+
+// 2)
+const odds = Object.values(game.odds)
+console.log(odds);
+let average = 0
+for(const odd of odds) {
+  average += odd
+}
+average/= odds.length
+console.log(average);
+
+// 3)
+const [team1, x, team2] = Object.entries(game.odds)
+console.log(team1, x, team2);
+console.log(`Odd of victory ${game.team1}: ${team1[1]}`);
+console.log(`Odd of draw: ${x[1]}`);
+console.log(`Odd of victory ${game.team2}: ${team2[1]}`);
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  console.log(team);
+  console.log(odd);
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// 4)
+// So the solution is to loop over the array, and add the array elements as object properties, and then increase the count as we encounter a new occurence of a certain element
+
+const scorers = {};
+for (const player of game.scored) {
+  console.log(player);
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
