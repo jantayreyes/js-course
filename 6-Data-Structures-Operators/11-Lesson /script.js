@@ -44,7 +44,7 @@ const restaurant = {
   },
 };
 
-// Maps
+// Maps Fundamentals
 // Create a map
 const res = new Map();
 res.set('name', 'Classico Italiano');
@@ -95,7 +95,37 @@ console.log(res.get(arr));
 res.set(document.querySelector('h1'), 'Title\' page');
 console.log(res);
 
+// Maps Iteration
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Jave'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try again!'],
+]);
+console.log(question);
 
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
 
+//  QUIZ APP
+console.log(question.get('question'));
+for(const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`)
+}
+const answer = Number(prompt('Your answer'));
+console.log(answer);
+if (question.get('Correct') === answer) {
+  console.log(question.get(true));
+} else {
+  console.log(question.get(false));
+};
 
-
+// Map to array
+console.log(question.entries());
+console.log(question.values());
+console.log(question.keys());
