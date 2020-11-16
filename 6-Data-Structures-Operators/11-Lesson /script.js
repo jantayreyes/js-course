@@ -44,3 +44,58 @@ const restaurant = {
   },
 };
 
+// Maps
+// Create a map
+const res = new Map();
+res.set('name', 'Classico Italiano');
+res.set(1, 'Firenze, Italy');
+console.log(res.set(2, 'Lisbon, Portugal'));
+
+// Add data 
+res
+.set('Categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set('open', 11)
+.set('close', 23)
+.set(true, 'We are open :D')
+.set(false, 'We are close :(');
+console.log(res);
+
+// Read data with Keys 
+console.log(res.get('name'));
+console.log(res.get(true));
+console.log(res.get('open'));
+
+const time = 21;
+console.log(res.get(time > res.get('open') && time < res.get('close')));
+
+// Check if contains
+console.log(res.has('categories'));
+
+// Delete 
+res.delete(2);
+console.log(res);
+
+// Count
+console.log(res.size);
+
+// Remove all the elments
+// res.clear();
+
+// This won't work. Because in the HEAP it has difference values in memory.
+res.set([1, 2, 3, 4], 'Test');
+console.log(res);
+console.log(res.get([1, 2, 3, 4]));
+
+// In order to work, we have to store in a variable.
+const arr = [1, 2, 3, 4]
+res.set(arr, 'Test');
+console.log(res.get(arr));
+
+// DOOm
+res.set(document.querySelector('h1'), 'Title\' page');
+console.log(res);
+
+
+
+
+
