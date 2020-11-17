@@ -44,3 +44,41 @@ const restaurant = {
   },
 };
 
+const airline = 'TAP Air Peru';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B331'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Peru')); // Case sensitive
+
+console.log(airline.slice(4)); // the 4 es position which the extract will start - Substring
+console.log(airline.slice(4, 7)); // The 7 is the end parameter. 
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // We add +1 in order to jump the space.
+
+console.log(airline.slice(-4)); // Peru
+console.log(airline.slice(1, -1)); // AP Air Per
+
+// EXAMPLE
+const checkMiddleSeat = function(seat) {
+  // B AND E are middle seats
+  const s = seat.slice(-1)
+  console.log(s);
+  if (s === 'B' || s === 'E') console.log('You got middle seat.'); 
+  else console.log('You got an amazing seat without kids.');
+  
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('21C');
+checkMiddleSeat('01Q');
+
