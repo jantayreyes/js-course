@@ -117,7 +117,30 @@ console.log(announcement.replaceAll('door', 'gate'));
 // Regular expression
 console.log(announcement.replaceAll(/door/g, 'gate')); //between slashes there is not a string. it is a regular expression
 
+// Booleans - includes - starstWith - ensdWith
+const place = 'Airbus A1230neo';
+console.log(place.includes('1230neo'));
+console.log(place.includes('Boing'));
+console.log(place.startsWith('Air'));
+console.log(place.endsWith('P'));
 
+if (place.startsWith('Airbus') && place.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+};
+
+// Examples
+const checkBaggage = function(items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('I have sucks and camera');
+checkBaggage('I have some Snacks and a gun for protection');
 
 
 
