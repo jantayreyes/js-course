@@ -82,3 +82,29 @@ checkMiddleSeat('11B');
 checkMiddleSeat('21C');
 checkMiddleSeat('01Q');
 
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log('JESUS'.toLowerCase());
+
+// Fix capitalization in name
+const passanger = 'jESuS'; // Jesus
+const passangerLower =  passanger.toLowerCase();
+const passangerCorrect = passangerLower[0].toUpperCase() + passangerLower.slice(1);
+console.log(passangerCorrect);
+
+// Comparing email
+const email = 'test@gmail.com';
+const loginEmail = '  Test@Gmail.Com \n' // enter = \=
+
+const lowerEmail =  loginEmail.toLowerCase();
+const trimmedEamil = lowerEmail.trim(); // erase whitespaces
+console.log(trimmedEamil);
+
+const normalizeEmail = loginEmail.toLowerCase().trim();
+console.log(normalizeEmail);
+
+
+
+
+
+
