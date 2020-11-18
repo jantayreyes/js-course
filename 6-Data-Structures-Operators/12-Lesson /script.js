@@ -102,6 +102,22 @@ console.log(trimmedEamil);
 
 const normalizeEmail = loginEmail.toLowerCase().trim();
 console.log(normalizeEmail);
+console.log(email === normalizeEmail); // true
+
+// Replacing
+
+const priceEU = '200,97€';
+const priceUS = priceEU.replace('€', '$').replace(',', '.');
+
+console.log(priceEU, priceUS);
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23';
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Regular expression
+console.log(announcement.replaceAll(/door/g, 'gate')); //between slashes there is not a string. it is a regular expression
+
+
 
 
 
