@@ -87,7 +87,7 @@ console.log(airline.toUpperCase());
 console.log('JESUS'.toLowerCase());
 
 // Fix capitalization in name
-const passanger = 'jESuS'; // Jesus
+const passanger = 'jESuS '; // Jesus
 const passangerLower =  passanger.toLowerCase();
 const passangerCorrect = passangerLower[0].toUpperCase() + passangerLower.slice(1);
 console.log(passangerCorrect);
@@ -142,8 +142,32 @@ checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('I have sucks and camera');
 checkBaggage('I have some Snacks and a gun for protection');
 
+// split
+console.log('a+very+nice+string'.split('+')); // elements of array
+console.log('Jesus Antay Reyes'.split(' '));
 
+const [firstName, lastName] = 'Jesus Antay'.split(' ');
+console.log(firstName, lastName); // array of [Jesus, Antay]
+const [firstName1, ...lastName1] = 'Jesus Antay Reyes'.split(' ');
+console.log(firstName1, lastName1); // Jesus [Antay, Reyes]
 
+// join
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName =  function(name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for(const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smite davis');
+capitalizeName('jesus abraham antay reyes');
 
 
 
