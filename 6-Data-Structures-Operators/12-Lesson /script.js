@@ -169,5 +169,33 @@ const capitalizeName =  function(name) {
 capitalizeName('jessica ann smite davis');
 capitalizeName('jesus abraham antay reyes');
 
+// padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+console.log('Jonas'.padStart(25, '+'));
+console.log(message.padEnd(25, '+'));
+
+const maskCreditCard = function(number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+
+};
+
+console.log(maskCreditCard(12412412612341241245));
+console.log(maskCreditCard('2151251261242140555650'));
+
+// repeat
+const message2 = 'Bad weather... All Departues Delayed...';
+console.log(message2.repeat(5));
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in line ${'plane'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(10);
+planesInLine(15);
+
 
 
