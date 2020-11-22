@@ -1,26 +1,35 @@
 'use strict';
 
-const  bookings = [];
+const flight = 'LH234';
+const jesus = {
+  name: 'Jesus Antay',
+  passaport: 2323235533,
+};
 
-// default values can contain any expression
-const createBooking = function(flightNum, numPassangers = 1, price = 199 * numPassangers) {
-  
-  // old way to set default parameters - ES5
-  // numPassangers = numPassangers || 1;
-  // price = price || 199;
+const checkIn = function (flightNum, passenger ) {
+    flightNum = 'LH999';
+    passenger.name = 'Mr. ' + passenger.name;
 
-  const booking = {
-    flightNum,
-    numPassangers,
-    price
-  };
-  console.log(booking);
-  bookings.push(booking);
-}
+    if (passenger.passaport === 2323235533) {
+      alert("Check in");
+    } else {
+      alert("Wrong passaport!");
+    }
+};
 
-createBooking('LH123');
-createBooking('LH123', 2, 800);
-createBooking('RF122', 5);
+checkIn(flight, jesus);
+console.log(flight);
+console.log(jesus);
 
-//In case we want to skip a middle parameter, this is the unique way to achieve
-createBooking('RF122', undefined, 400);
+// Is the same as doing ...
+const flightNum = flight;
+const passenger = jesus;
+
+const newPassport =  function (person) {
+  person.passaport = Math.trunc(Math.random() * 10000000000);
+};
+
+newPassport(jesus);
+checkIn(flight, jesus);
+console.log(jesus);
+
