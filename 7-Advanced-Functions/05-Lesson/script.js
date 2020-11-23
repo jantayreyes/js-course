@@ -52,3 +52,4 @@ console.log(swiss);
 // In modern JS, we do not apply, because with call and SPREAD operator, we actually can do the same thing. 
 book.call(swiss, ...fligthData);
 console.log(swiss);
+
