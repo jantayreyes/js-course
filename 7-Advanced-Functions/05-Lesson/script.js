@@ -27,7 +27,7 @@ const book = lufthansa.book;
 // book(23, 'Sarah Williams'); - Does not work
 
 // CALL METHOD
-// The first argument is where we cant to set the this.keyword
+// The first argument is where we want to set the this.keyword
 book.call(eurowings, 23, 'Sarah Williams');
 console.log(eurowings); 
 
