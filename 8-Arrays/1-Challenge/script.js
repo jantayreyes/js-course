@@ -21,3 +21,23 @@ Test data:
 Hints: Use tools from all lectures in this section so far �
 GOOD LUCK �
  */
+
+const checkDogs = function(dogsJulia, dogsKate) {
+  const dogsJuliaCorr = dogsJulia.slice();
+  console.log(dogsJuliaCorr);
+  console.log(dogsJuliaCorr.splice(0, 1));
+  console.log(dogsJuliaCorr.splice(-2));
+  console.log(dogsJuliaCorr);
+  const allDogsArr = dogsJuliaCorr.concat(dogsKate);
+
+  allDogsArr.forEach(function(age, i) {
+    if (age > 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${age} years old.`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy 🐶.`);
+    }
+  });
+};
+
+checkDogs([3, 5, 2, 5, 7, 12, 7],[4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
