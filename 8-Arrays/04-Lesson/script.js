@@ -16,7 +16,6 @@ console.log(depositFor);
 // Example
 
 const withdrawals = movements.filter(mov => mov < 0);
-
 console.log(withdrawals);
 
 // Reduce
