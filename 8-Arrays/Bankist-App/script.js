@@ -62,7 +62,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////
 
-console.log(account1.movements);
 const displayMovements = function(movements) {
   containerMovements.innerHTML = '';
 
@@ -79,40 +78,37 @@ const displayMovements = function(movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+
 
 const calcDisplayBalance =  function(movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`
 };
-calcDisplayBalance(account1.movements); 
 
-// console.log(containerMovements.innerHTML);
-// console.log(containerMovements.textContent);
 
-const calcDisplaySummary = function(movements) {
-  const incomes = movements
+const calcDisplaySummary = function(account) {
+  const incomes = account.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`
 
-  const out = movements 
+  const out = account.movements 
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`
 
   // We have a interest of 1.2% for each deposit (positive value)
-  const interest =  movements
+  const interest = account.movements
     .filter(mov => mov > 0)
-    .map(mov => (mov * 1.2) / 100)
+    .map(mov => (mov * account.interestRate) / 100)
     .filter((int, i, arr) => { // We just add the value, if interest is >= 1
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
+
 
 const createUsername =  function(accs) {
   accs.forEach(function (acc) {
@@ -124,6 +120,37 @@ const createUsername =  function(accs) {
   });
 };
 createUsername(accounts);
-console.log(accounts);
 
+// Event Handler
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function(e) {
+  //Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+  console.log(currentAccount);
+  // Optianal chaining, if the currentAccount existis then it looks for pin
+  if(currentAccount?.pin === Number(inputLoginPin.value)) {
+
+    // Display UI and Welcome message
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 100;
+    
+    // Clear the input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur(); // to remove the click, to lose the focus on the pin field
+
+    //Display movements
+    displayMovements(currentAccount.movements);
+
+    // Display balance
+    calcDisplayBalance(currentAccount.movements);
+
+    //Display summary
+    calcDisplaySummary(currentAccount);
+
+  };
+});
 
