@@ -69,3 +69,10 @@ console.log(movements.some(mov => mov === -130));
 // Every
 console.log(account4.movements.every(mov => mov > 0)); // true
 console.log(account2.movements.every(mov => mov > 0)); // false
+
+// Separated callback
+const deposit = mov => mov > 0;
+console.log(movements);
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
