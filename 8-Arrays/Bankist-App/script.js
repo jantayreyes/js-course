@@ -66,7 +66,6 @@ const displayMovements = function(movements) {
   containerMovements.innerHTML = '';
 
   movements.forEach(function (mov, i) {
-  
     const type = mov > 0 ? 'deposit' : 'withdrawal'
 
     const html = `
@@ -130,13 +129,12 @@ const updateUI = function(account) {
 
   //Display summary
   calcDisplaySummary(account);
-
 };
 
 // Event Handler
 
+// LOGIN 
 let currentAccount;
-
 btnLogin.addEventListener('click', function(e) {
   //Prevent form from submitting
   e.preventDefault();
@@ -158,7 +156,7 @@ btnLogin.addEventListener('click', function(e) {
   };
 });
 
-
+// MAKE A TRANSFER 
 btnTransfer.addEventListener('click', function(e) {
   e.preventDefault();
   const ammount = Number(inputTransferAmount.value);
@@ -182,6 +180,24 @@ btnTransfer.addEventListener('click', function(e) {
   inputTransferTo.value = inputTransferAmount.value = '';
 });
 
+// REQUEST A BANK LOAN
+btnLoan.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add the movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+})
+
+
+// DELETE AN ACCOUNT
 btnClose.addEventListener('click', function(e) {
   e.preventDefault();
 
