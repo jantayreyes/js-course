@@ -3,17 +3,6 @@
 // PIPELINE
 const movements = [200, 450, -400, 3000, -650, -130, 70, -1300, 255, 212, -1212];
 
-// The Magic of Chaining Methods
-const eurToUsd = 1.1;
-
-const totalDepositsUSD = movements
-.filter(mov => mov > 0)
-.map(mov => mov * eurToUsd)
-.reduce((acc, mov) => acc + mov, 0);
-
-console.log(totalDepositsUSD);
-
-// Find
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -41,3 +30,31 @@ const account4 = {
   interestRate: 1,
   pin: 4444,
 };
+
+const accounts = [account1, account2, account3, account4];
+
+// FLAT
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+// flat 2 depp
+const arrDeep = [[1, [2, 3]], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+const accountMovements = accounts.map(acc => acc.movements);
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+const overalBalance2 = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance2);
+
+// FLATMAP - ONE LEVEL DEEP
+const overalBalance3 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance3);
