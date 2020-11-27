@@ -42,6 +42,7 @@ const account4 = {
   pin: 4444,
 };
 
+// Find
 const accounts = [account1, account2, account3, account4];
 
 const firstWithdrawl = movements.find(mov => mov < 0);
@@ -56,3 +57,11 @@ for(const account of accounts) {
     console.log(account);
   }
 };
+
+// Some
+console.log(movements);
+console.log(movements.includes(-100130)); // Equality
+
+const anyDeposits = movements.some(mov => mov > 5000); // Condition
+console.log(anyDeposits);
+console.log(movements.some(mov => mov === -130));
