@@ -33,3 +33,34 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
+// SORT
+// strings
+const owners = ['Jesus', 'Zack', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+// numbers
+console.log(movements);
+
+// return < 0 then A, B (keep order)
+// return > 0 then B, A (switch order)
+// movements.sort((a, b) => {
+//   if (a > b) return 1
+//   if (a < b) return -1
+// });
+// console.log(movements); // Ascending
+
+// movements.sort((a, b) => {
+//   if (a > b) return -1
+//   if (a < b) return 1
+// });
+// console.log(movements); // Descending
+
+movements.sort((a, b) =>  a - b);
+console.log(movements); // Ascending
+
+movements.sort((a, b) =>  b - a);
+console.log(movements); // Descending
+
+
+
