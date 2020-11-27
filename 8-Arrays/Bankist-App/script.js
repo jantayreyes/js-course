@@ -167,12 +167,11 @@ btnTransfer.addEventListener('click', function(e) {
   console.log(ammount, receiverAcc);
 
   if (
-    ammount > 0 &&
-    receiverAcc &&
-    ammount <= currentAccount.balance &&  
-    receiverAcc.username !== currentAccount.username
+    ammount > 0 
+    && receiverAcc 
+    && ammount <= currentAccount.balance
+    && receiverAcc.username !== currentAccount.username
   ) {
-
     // Doing the transfer
     currentAccount.movements.push(-ammount);
     receiverAcc.movements.push(ammount);
@@ -181,4 +180,23 @@ btnTransfer.addEventListener('click', function(e) {
     updateUI(currentAccount);
   }
   inputTransferTo.value = inputTransferAmount.value = '';
+});
+
+btnClose.addEventListener('click', function(e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value 
+    && currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
