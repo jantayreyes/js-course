@@ -73,3 +73,5 @@ console.log(dice);
 //    It works because we transfrom de NodeList to a proper array.
 //   console.log(movementsUI);
 // });
+
+
