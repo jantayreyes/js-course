@@ -35,7 +35,7 @@ const dogs = [
 // 1)
 dogs.forEach(function(dogs) {
   dogs.recommendedFood = Math.trunc(dogs.weight ** 0.75 * 28)
-})
+});
 console.log(dogs);
 
 // 2)
@@ -56,4 +56,25 @@ console.log(ownersEatTooLittle);
 
 // 4)
 // "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
-console.log(`${ownersEatTooMuch} eat t`);
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much! and ${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
+
+// 5)
+const normalEatDog = dogs.some(dog => dog.recommendedFood === dog.curFood);
+console.log(normalEatDog);
+
+// 6) 
+const checkEatingOkay = dog => dog.curFood > (dog.recommendedFood * 0.90) && dog.curFood < (dog.recommendedFood * 1.10);
+
+const okayFood = dogs.some(checkEatingOkay)
+console.log(okayFood);
+
+// 7)
+const notOkayFood = dogs.filter(checkEatingOkay)
+console.log(notOkayFood);
+
+// 8)
+// We have to create a copy of the array first of all.
+const dogSorted = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood);
+
+console.log(dogSorted);
+console.log(dogs);
