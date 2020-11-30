@@ -1,6 +1,6 @@
 'use strict';
 
-// Remainder Operator
+// REMAINDER OPERATOR
 console.log(5 % 2);
 console.log(8 % 3);
 
@@ -23,7 +23,7 @@ console.log(isEven(47));
 //     if (i % 3 === 0) row.style.backgroundColor = 'blue';
 // });
 
-// BigInt
+// BIGINT
 console.log(2 ** 53 - 1); // Biggest number that JS can safely represent.
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(2 ** 53 + 1); // Not correct.
@@ -57,6 +57,38 @@ console.log(11n / 3n)
 console.log(10 / 3);
 
 
+// DATES
+// Create a date
+// const now = new Date();
+// console.log(now);
 
+// console.log(new Date('Nov 30 2020 12:31:53'));
+// console.log(new Date('December 24, 2015'));
+// console.log(new Date());
 
+// // The month in JS is Zero base.
+// console.log(new Date(2037, 10, 15, 23, 5, 10));
+// console.log(new Date(2037, 10, 31)); // autocorrect at the next day.
+
+// console.log(new Date(0));
+// console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// Working with dates
+const future =  new Date(2037, 10, 16, 23, 5);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+
+console.log(future.getTime());
+console.log(new Date(2142021900000)); // revert
+
+console.log(Date.now()); // Return you the now timestamp
+
+future.setFullYear(2044);
+console.log(future);
 
