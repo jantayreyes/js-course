@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #444;
   background-color: #f3f3f3;
   height: 100vh;
@@ -139,6 +139,7 @@ nav {
   padding: 0.1rem 1rem;
   border-radius: 10rem;
   margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 .movements__date {
