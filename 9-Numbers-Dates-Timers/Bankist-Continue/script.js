@@ -72,7 +72,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // +('any number in string format') =  Number('Any number in string format')
 
-const formatMovementsDate = function(date) {
+const formatMovementsDate = function(date, locale) {
   const calcDaysPassed = (date1, date2) => 
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   
@@ -82,10 +82,12 @@ const formatMovementsDate = function(date) {
   if (dayPassed === 1) return 'Yesterday';
   if (dayPassed <= 7) return `${dayPassed} days ago`;
   else {
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth()+ 1}`.padStart(2, 0) ;
-    const year =  date.getFullYear();
-    return `${day}/${month}/${year}`
+  //   const day = `${date.getDate()}`.padStart(2, 0);
+  //   const month = `${date.getMonth()+ 1}`.padStart(2, 0) ;
+  //   const year =  date.getFullYear();
+  //   return `${day}/${month}/${year}`
+  
+    return new Intl.DateTimeFormat(locale).format(date);
   }
 };
 
@@ -98,7 +100,7 @@ const displayMovements = function(account, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(account.movementsDates[i]);
-    displayDate = formatMovementsDate(date);
+    displayDate = formatMovementsDate(date, account.locale);
   
     const html = `
       <div class="movements__row">
@@ -109,7 +111,7 @@ const displayMovements = function(account, sort = false) {
       </div>
     `; 
     containerMovements.insertAdjacentHTML('afterbegin', html);
-  });
+  })
 };
 
 const calcDisplayBalance =  function(account) {
@@ -186,15 +188,28 @@ btnLogin.addEventListener('click', function(e) {
     // Display UI and Welcome message
     labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
     containerApp.style.opacity = 100;
+
+    // Experimenting API
+    const now = new Date();
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      day: 'numeric',
+      month: 'numeric', //'long' '2-digit'
+      year: 'numeric', // '2-digit'
+      // weekday: 'long', // 'short', 'narrow'
+    };
+    // const locale = navigator.language;
+    labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now)
     
     // Create current date and time
-    const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth()+ 1}`.padStart(2, 0) ;
-    const year =  now.getFullYear();
-    const hour = `${now.getHours()}`.padStart(2, 0);;
-    const min = `${now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`
+    // const now = new Date();
+    // const day = `${now.getDate()}`.padStart(2, 0);
+    // const month = `${now.getMonth()+ 1}`.padStart(2, 0) ;
+    // const year =  now.getFullYear();
+    // const hour = `${now.getHours()}`.padStart(2, 0);;
+    // const min = `${now.getMinutes()}`.padStart(2, 0);
+    // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`
     
     // Clear the input fields
     inputLoginUsername.value = inputLoginPin.value = '';
