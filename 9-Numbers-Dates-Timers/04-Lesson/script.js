@@ -24,7 +24,7 @@ console.log('Germany: ', new Intl.NumberFormat('de-DE', options).format(num));
 console.log('Syria: ', new Intl.NumberFormat('ar-SY', options).format(num));
 console.log(navigator.language, new Intl.NumberFormat(navigator.language, options).format(num));
 
-// TIMERS
+// setTimeout
 const ingredients = ['olives', 'spinach']
 
 const pizzaTimer = setTimeout(
@@ -39,3 +39,14 @@ console.log('Waiting for your order...');
 
 // It will remove timer if spinach is an ingredient.
 if(ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval
+setInterval(function () {
+  const now = new Date();
+  const hour = `${now.getHours()}`.padStart(2, 0);
+  const min = `${now.getMinutes()}`.padStart(2, 0);
+  const sec = `${now.getSeconds()}`.padStart(2, 0);
+  console.log(`${hour}:${min}:${sec}`);
+}, 1000);
+
+  
