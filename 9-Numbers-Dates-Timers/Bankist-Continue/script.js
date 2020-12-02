@@ -175,15 +175,45 @@ const updateUI = function(account) {
   calcDisplaySummary(account);
 };
 
+const startLogoutTimer = function () {
+
+  const tick = function() {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+    // In each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if(time === 0) {
+      clearInterval(timer);
+      containerApp.style.opacity = 0;
+      labelWelcome.textContent = 'Log in to get started'
+    }
+    ;
+    // Decrease one second
+    time--;
+  };
+
+  // Set Time to 5 minutes
+  let time = 300;
+
+  // Call the timer every second
+  // You have to call tick, in order to achieve that it starts at the time that you set.
+  tick();
+  // you call tick every second.
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
 // Event Handler
 
 // LOGIN 
-let currentAccount;
+let currentAccount, timer;
 
 // FAKE ALWAYS LOGGED IN
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 btnLogin.addEventListener('click', function(e) {
   //Prevent form from submitting
@@ -223,6 +253,12 @@ btnLogin.addEventListener('click', function(e) {
     // Clear the input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur(); // to remove the click, to lose the focus on the pin field
+
+    // Timer
+    // This will clear the timer if a user log in before. 
+    if (timer) clearInterval(timer);
+    // If timer does not exists, then it is assisgned to the timer, that's why we return timer in startLogoutTimer.
+    timer = startLogoutTimer();
     
     updateUI(currentAccount);
   };
@@ -252,6 +288,10 @@ btnTransfer.addEventListener('click', function(e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Reset timer
+    clearInterval(timer);
+    timer = startLogoutTimer();
   }
   inputTransferTo.value = inputTransferAmount.value = '';
 });
@@ -276,6 +316,10 @@ btnLoan.addEventListener('click', function(e) {
     }, 2500);
   }  
   inputLoanAmount.value = '';
+  
+  // Reset timer
+  clearInterval(timer);
+  timer = startLogoutTimer();
 });
 
 
