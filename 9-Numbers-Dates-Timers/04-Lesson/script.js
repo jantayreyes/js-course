@@ -23,3 +23,19 @@ console.log('US: ', new Intl.NumberFormat('en-US', options).format(num));
 console.log('Germany: ', new Intl.NumberFormat('de-DE', options).format(num));
 console.log('Syria: ', new Intl.NumberFormat('ar-SY', options).format(num));
 console.log(navigator.language, new Intl.NumberFormat(navigator.language, options).format(num));
+
+// TIMERS
+const ingredients = ['olives', 'spinach']
+
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => 
+  console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕🍕🍕🍕🍕`), 
+  3000, 
+  ...ingredients,
+);
+
+// The first line of code will be executed and then the timer.
+console.log('Waiting for your order...');
+
+// It will remove timer if spinach is an ingredient.
+if(ingredients.includes('spinach')) clearTimeout(pizzaTimer);
