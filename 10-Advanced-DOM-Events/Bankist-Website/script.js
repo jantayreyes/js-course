@@ -29,12 +29,36 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+//////////////////////////////////////////////////////////////////////////////////
+const btnSrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
+btnSrollTo.addEventListener('click', function (e) {
+  const s1Coords =  section1.getBoundingClientRect();
+  console.log(s1Coords);
 
+  console.log(e.target.getBoundingClientRect());
+  console.log('Current scroll(X/Y)', window.pageXOffset, window.pageYOffset);
 
+  console.log('height/width viewport', 
+  document.documentElement.clientHeight, 
+  document.documentElement.clientWidth);
 
+  // Scrolling
+  // window.scrollTo(
+  // s1Coords.left + window.pageXOffset, //Current position + current scroll
+  //   s1Coords.top + window.pageYOffset
+  //   );
 
-
-
+  // Old way
+  // window.scrollTo ({
+  //   left: s1Coords.left + window.pageXOffset,
+  //   top: s1Coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  
+  // Modern way
+  section1.scrollIntoView({behavior: 'smooth'})
+});
 
  
