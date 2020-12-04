@@ -1,4 +1,4 @@
-// just for learning purposes. It not works here, you have to use it in bankist-webapp folder.
+// ONLY WORKS IN BANKIST FOLDER
 
 // Selecting Elements
 console.log(document.documentElement);
