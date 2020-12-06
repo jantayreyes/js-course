@@ -68,15 +68,19 @@ const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${rando
 
 document.querySelector('.nav__link').addEventListener('click', function(e) {
   this.style.backgroundColor = randomColor;
-   console.log('link', e.target)
+  console.log('link', e.target, e.currentTarget)
+  console.log(e.currentTarget === this); // the same in any event handler.
+
+  // Stop propagation
+  // e.stopPropagation();
 });
 
 document.querySelector('.nav__links').addEventListener('click', function(e) {
   this.style.backgroundColor = randomColor;
-  console.log('container', e.target)
+  console.log('container', e.target, e.currentTarget)
 });
 
 document.querySelector('.nav').addEventListener('click', function(e) {
   this.style.backgroundColor = randomColor;
-  console.log('nav', e.target)
+  console.log('nav', e.target, e.currentTarget)
 });
