@@ -62,6 +62,21 @@ btnSrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({behavior: 'smooth'})
 });
 
+// Generate random color rgb(255, 255, 255)
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`
 
+document.querySelector('.nav__link').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor;
+   console.log('link', e.target)
+});
 
- 
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor;
+  console.log('container', e.target)
+});
+
+document.querySelector('.nav').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor;
+  console.log('nav', e.target)
+});
