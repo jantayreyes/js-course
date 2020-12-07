@@ -1,13 +1,19 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
 
+////////////////////////////////////////////////////////////////////////
+
+// Selection 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnSrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
+////////////////////////////////////////////////////////////////////////
+
+// Modal window
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -29,11 +35,10 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-//////////////////////////////////////////////////////////////////////////////////
 
-const btnSrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+////////////////////////////////////////////////////////////////////////
 
+// Button Scrolling
 btnSrollTo.addEventListener('click', function (e) {
   const s1Coords =  section1.getBoundingClientRect();
   console.log(s1Coords);
@@ -62,3 +67,28 @@ btnSrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({behavior: 'smooth'})
 });
 
+// PAGE NAVIGATION
+
+// No efficient because we are creating 3 copys of the same event handler, image having 10.000 elements.
+// document.querySelectorAll('.nav__link').forEach(function(el) {
+//   el.addEventListener('click', function(e) {
+//     e.preventDefault()
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth'});
+//   });
+// });
+
+// Event Delegation - Better solution
+// 1.  Add event listener to commom parent element
+// 2. Determine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  // Matching strategy
+  if(e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth'});
+  };
+});
