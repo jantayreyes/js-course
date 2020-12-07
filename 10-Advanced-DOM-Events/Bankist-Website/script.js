@@ -93,3 +93,26 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
   };
 });
 
+// Tabbed Component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function(e) {
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked);
+
+  //Guard clause
+  if (!clicked) return;
+
+  // Before to add any active tab, we remove all of them, basically clearing. 
+  tabs.forEach( t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+
+ 
+  // First we have to remove all the areas that were activated.
+  tabsContent.forEach( c => c.classList.remove('operations__content--active'));
+  
+  // Activate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+});
