@@ -131,6 +131,10 @@ const handleHover = function (e) {
   }
 };
 
+// Passing 'argument' into handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
+
 // nav.addEventListener('mouseover', function (e) {
 //   handleHover(e, 0.5);
 // });
@@ -138,10 +142,6 @@ const handleHover = function (e) {
 // nav.addEventListener('mouseout', function (e) {
 //   handleHover(e, 1)
 // });
-
-// Passing 'argument' into handler
-nav.addEventListener('mouseover', handleHover.bind(0.5));
-nav.addEventListener('mouseout', handleHover.bind(1));
 
 // nav.addEventListener('mouseover', function(e) {
 //   if (e.target.classList.contains('nav__link')) {
@@ -167,4 +167,17 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 //     });
 //     logo.style.opacity = 1;
 //   }
+// });
+
+// Sticky navigation
+
+
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY);
+
+//   if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+
 // });
