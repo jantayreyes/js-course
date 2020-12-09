@@ -199,7 +199,6 @@ console.log(navHeight);
 
 const stickyNav = function(entries) {
   const[entry] = entries // same that entries[0]
-  console.log(entry);
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
@@ -213,4 +212,25 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 
-// REVEALING FEATURES AND DESCRIPTIONS
+// REVEALING SECTIONS
+const allSections = document.querySelectorAll('.section')
+
+const reevealSection =  function(entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target)
+};
+
+const sectionObserver = new IntersectionObserver(reevealSection, {
+  root: null,
+  threshold: 0.15
+});
+
+allSections.forEach(function(section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
