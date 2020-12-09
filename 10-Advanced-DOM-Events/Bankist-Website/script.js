@@ -213,3 +213,4 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 
+// REVEALING FEATURES AND DESCRIPTIONS
