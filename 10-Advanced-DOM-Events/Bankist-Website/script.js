@@ -194,6 +194,8 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // observer.observe(section1);
 
 const header =  document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect();
+console.log(navHeight);
 
 const stickyNav = function(entries) {
   const[entry] = entries // same that entries[0]
@@ -206,7 +208,7 @@ const stickyNav = function(entries) {
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: '-90px' //box of 90px that will be applied outside of our target element.
+  rootMargin: `-${navHeight.height}px` //box of 90px that will be applied outside of our target element.
 });
 
 headerObserver.observe(header);
