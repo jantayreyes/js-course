@@ -330,7 +330,6 @@ const sliderComponent = function () {
     goToSlide(0);
     createDots();
     activateDot(0);
-    
   };
   init();
 
