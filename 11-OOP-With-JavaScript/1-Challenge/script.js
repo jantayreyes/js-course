@@ -16,3 +16,41 @@ Test data:
 
 GOOD LUCK �
 */
+
+
+const Car = function(make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.speed}km/h`) 
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.speed}km/h`) 
+};
+
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedez', 95);
+console.log(bmw);
+console.log(mercedes);
+
+console.log('-----BMW-----');
+bmw.accelerate();
+bmw.brake();
+bmw.brake();
+bmw.brake();
+bmw.accelerate();
+bmw.accelerate();
+console.log('-----Mercedes-----');
+mercedes.accelerate();
+mercedes.brake();
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.brake();
+mercedes.brake();
+
