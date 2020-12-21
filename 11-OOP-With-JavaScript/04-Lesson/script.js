@@ -30,6 +30,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Intance methods
   // Mehtods will be added to .prototype property
   calcAge() {
     console.log(2020 - this.birthYear);
@@ -52,6 +53,11 @@ class PersonCl {
   get fullName() {
     return this._fullName
   }
+
+  // Static Methods
+  static hey() {
+      console.log('Hey there!');
+  }
 };
 
 const jessica = new PersonCl('Jessica Davis', 1995)
@@ -59,3 +65,22 @@ jessica.calcAge();
 console.log(jessica.age);
 
 const walter = new PersonCl('Waltercito El Loco', 1955);
+
+
+// Static Methods
+// This methods are attached on the constructor.
+Array.from(document.querySelectorAll('h1'));
+Number.parseFloat(12);
+
+PersonCl.hey();
+
+// [1,2,3].from() - All the arrays does not inherit the FROM method
+
+// This will work only in the construsctor.
+// PersonCl.hey = function() {
+//   console.log('Hey there!');  
+//   console.log(this);
+// };
+// PersonCl.hey();
+
+// jessica.hey(); Does not work.
