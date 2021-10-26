@@ -46,6 +46,9 @@ bmw.brake();
 bmw.brake();
 bmw.accelerate();
 bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+
 console.log('-----Mercedes-----');
 mercedes.accelerate();
 mercedes.brake();
